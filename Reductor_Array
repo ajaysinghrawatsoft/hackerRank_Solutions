@@ -1,0 +1,38 @@
+---------------------------------------------------
+
+For two int arrays, the comparator value is the total number of elements in the first array such that there exists no int in the second array with an absolute difference less than or equal to d. Using C++ write a function to find the comparator value, return the value.
+
+the function has the parameters :
+int comparatorValue(vector<int> a, vector<int> b, int d)
+
+Contraints
+1<= n, m<= 10^5
+0 <= a[i], b[j], d<= 10^8
+
+---------------------------------------------------------- Solution in php
+
+
+function comparatorValue($a, $b, $d)
+	 {
+	   $count = 0; $test = 0;
+	   
+	   foreach($a as $vala)
+	   {
+	     foreach($b as $valb)
+	     {
+	       if(abs($vala - $valb) <= $d)
+	       {
+	         $test = $test +1;
+	       }
+	     }
+	     
+	     if($test == 0)
+	     {
+	       $count = $count + 1;
+	     }
+	     
+	     $test = 0;
+	   }
+	   
+	   return $count;
+	 }
